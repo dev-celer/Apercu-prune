@@ -5,7 +5,7 @@ author: 'Celer'
 inputs:
   debug:
     description: 'Enable debug logs'
-    default: 'false'
+    default: 'true'
 
 runs:
   using: 'composite'
@@ -17,7 +17,7 @@ runs:
       run: |
         chmod +x ${{ github.action_path }}/apercu
         if [[ "${{ inputs.debug }}" == 'true' ]]; then
-          APERCU_OUTPUT=$(${{ github.action_path }}/apercu -d prune --github-repository ${{ github.repository }})
+          ${{ github.action_path }}/apercu -d prune --github-repository ${{ github.repository }}
         else
-          APERCU_OUTPUT=$(${{ github.action_path }}/apercu prune --github-repository ${{ github.repository }})
+          ${{ github.action_path }}/apercu prune --github-repository ${{ github.repository }}
         fi
