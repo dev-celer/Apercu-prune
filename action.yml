@@ -5,7 +5,7 @@ author: 'Celer'
 inputs:
   debug:
     description: 'Enable debug logs'
-    default: 'true'
+    default: 'false'
 
 runs:
   using: 'composite'
